@@ -1,0 +1,47 @@
+﻿name: Daily Hearthstone Meta Scrape
+
+on:
+  # 每天北京时间 08:05 自动运行
+  schedule:
+    - cron: "5 0 * * *"   # UTC 00:05 = 北京 08:05
+  # 也支持手动触发（GitHub Actions 页面点击 Run workflow）
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run scraper
+        run: node src/index.js
+        env:
+          NODE_ENV: production
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hearthstone-data
+          path: output/
+          retention-days: 7
+
+      - name: Commit data (optional, disable if you don't want auto-commit)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        # ⚠️ 取消注释以下行以启用自动提交数据到仓库:
+        # with:
+        #   commit_message: "Auto-update Hearthstone meta data"
+        #   file_pattern: "output/*.json"

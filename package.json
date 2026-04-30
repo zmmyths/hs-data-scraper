@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "hs-data-scraper",
   "version": "1.0.0",
   "description": "Hearthstone meta data scraper for hs-data-mini - auto-run via GitHub Actions",

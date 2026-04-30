@@ -1,0 +1,7 @@
+node_modules/
+output/*.json
+output/*.png
+debug_*.png
+cf_debug.png
+*.log
+.DS_Store

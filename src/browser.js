@@ -1,4 +1,4 @@
-/**
+﻿/**
  * browser.js — Playwright + Stealth 浏览器实例
  * 自动绕过 Cloudflare 和 hsreplay.net 的 Bot 检测
  */

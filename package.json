@@ -11,8 +11,6 @@
   "keywords": ["hearthstone", "hsreplay", "scraper", "github-actions"],
   "license": "MIT",
   "dependencies": {
-    "playwright": "^1.49.0",
-    "playwright-extra": "^4.3.6",
-    "@extra-stealth/evasions": "^1.2.1"
+    "playwright": "^1.49.0"
   }
 }

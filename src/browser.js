@@ -1,16 +1,12 @@
 ﻿/**
- * browser.js — Playwright + Stealth 浏览器实例
- * 自动绕过 Cloudflare 和 hsreplay.net 的 Bot 检测
+ * browser.js — Playwright 浏览器实例
+ * GitHub Actions 环境无需反检测（服务器 IP 非机器人特征）
  */
 
-const { chromium } = require('playwright-extra')
-const stealth = require('@extra-stealth/evasions').default
-
-// 应用所有 Stealth 插件
-chromium.use(stealth)
+const { chromium } = require('playwright')
 
 /**
- * 启动 stealth Chrome
+ * 启动 Chrome
  * @param {object} options
  * @param {boolean} options.headless — 是否无头（CI=true, 本地调试=false）
  * @returns {Promise<Browser>}
@@ -23,8 +19,6 @@ async function launchBrowser({ headless = true } = {}) {
       '--disable-setuid-sandbox',
       '--disable-dev-shm-usage',
       '--disable-blink-features=AutomationControlled',
-      // 反指纹
-      '--disable-web-security',
       '--lang=zh-CN',
     ],
   })

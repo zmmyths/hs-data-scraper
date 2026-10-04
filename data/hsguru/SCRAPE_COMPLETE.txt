@@ -1,0 +1,48 @@
+=================================================================
+HEARTHSTONE HSGURU.COM META SCRAPE - COMPLETE
+=================================================================
+Date: Sunday, October 4, 2026
+Parameter: min_games=50 (applied to all URLs)
+
+RESULTS SUMMARY:
+-----------------------------------------------------------------
+File                              Rows    Lines   Screenshot
+-----------------------------------------------------------------
+standard_diamond_4to1.json          45      406   ✓
+standard_legend.json                32      289   ✓
+standard_top_5k.json                30      271   ✓
+standard_top_legend.json            26      235   ✓
+wild_diamond_4to1.json             117     1054   ✓
+wild_legend.json                   131     1180   ✓
+wild_top_5k.json                    76      685   ✓
+wild_top_legend.json                50      451   ✓
+-----------------------------------------------------------------
+TOTAL                              507     4571   8 files
+
+URLS SCRAPED:
+1. https://www.hsguru.com/meta?format=2&period=patch_36.6.3&rank=diamond_4to1&min_games=50
+2. https://www.hsguru.com/meta?format=2&period=patch_36.6.3&rank=legend&min_games=50
+3. https://www.hsguru.com/meta?format=2&period=patch_36.6.3&rank=top_5k&min_games=50
+4. https://www.hsguru.com/meta?format=2&period=patch_36.6.3&rank=top_legend&min_games=50
+5. https://www.hsguru.com/meta?format=1&period=past_week&rank=diamond_4to1&min_games=50
+6. https://www.hsguru.com/meta?format=1&period=past_week&rank=legend&min_games=50
+7. https://www.hsguru.com/meta?format=1&period=past_week&rank=top_5k&min_games=50
+8. https://www.hsguru.com/meta?format=1&period=past_week&rank=top_legend&min_games=50
+
+DATA FIELDS EXTRACTED:
+- archetype (deck name)
+- class (empty in this extraction, visible in archetype name)
+- winrate (float percentage)
+- popularity (string with percentage and game count)
+- turns (float average turns)
+- duration (float average duration in minutes)
+- climbing_speed (string with stars/hour format)
+
+NOTES:
+- Cloudflare challenges were solved automatically during navigation
+- All 8 pages loaded successfully with min_games=50 parameter
+- Wild format has significantly more archetypes than Standard
+- Wild Diamond 4-1 has the most archetypes (117 rows)
+- Screenshots saved in /tmp/hsguru_scrape/screenshots/
+
+=================================================================
